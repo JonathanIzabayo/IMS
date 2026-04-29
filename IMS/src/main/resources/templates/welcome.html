@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>IMS Dashboard</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#004e92,#000428);
+        }
+
+        .container{
+            width:450px;
+            background:white;
+            padding:40px;
+            border-radius:15px;
+            text-align:center;
+            box-shadow:0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        h1{
+            color:#004e92;
+            margin-bottom:10px;
+        }
+
+        p{
+            color:#555;
+            margin-bottom:25px;
+        }
+
+        a{
+            display:block;
+            text-decoration:none;
+            background:#004e92;
+            color:white;
+            padding:14px;
+            margin-top:15px;
+            border-radius:8px;
+            transition:0.3s;
+            font-weight:bold;
+        }
+
+        a:hover{
+            background:#002f5e;
+            transform:translateY(-2px);
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>IMS System</h1>
+
+    <p>Inventory Management System</p>
+
+    <a href="/device/list">Manage Devices</a>
+
+    <a href="/employee/list">Manage Employees</a>
+
+    <a href="/assignment/list">Assignments</a>
+
+    <a href="/department/list">Departments</a>
+
+</div>
+
+</body>
+</html>

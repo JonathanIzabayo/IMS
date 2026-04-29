@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Assignment</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            background:#f4f6f9;
+        }
+
+        .container{
+            width:500px;
+            margin:50px auto;
+            background:white;
+            padding:35px;
+            border-radius:12px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            text-align:center;
+            color:#004e92;
+            margin-bottom:25px;
+        }
+
+        input,select{
+            width:100%;
+            padding:12px;
+            margin-top:10px;
+            margin-bottom:18px;
+            border:1px solid #ccc;
+            border-radius:8px;
+        }
+
+        button{
+            width:100%;
+            padding:14px;
+            background:#004e92;
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#002f5e;
+        }
+
+        a{
+            display:block;
+            text-align:center;
+            margin-top:15px;
+            text-decoration:none;
+            color:#004e92;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Assign Device</h2>
+
+<form method="post"
+      th:action="@{/assignment/save}"
+      th:object="${assignment}">
+
+    <label>Issue Date</label>
+
+    <input type="date"
+           th:field="*{issueDate}" />
+
+    <label>Return Date</label>
+
+    <input type="date"
+           th:field="*{returnDate}" />
+
+    <label>Select Employee</label>
+
+    <select name="employeeId">
+
+        <option value="">
+            -- Select Employee --
+        </option>
+
+        <option th:each="e : ${employees}"
+                th:value="${e.id}"
+                th:text="${e.fullName}">
+        </option>
+
+    </select>
+
+    <label>Select Device</label>
+
+    <select name="deviceId">
+
+        <option value="">
+            -- Select Device --
+        </option>
+
+        <option th:each="d : ${devices}"
+                th:value="${d.id}"
+                th:text="${d.deviceName}">
+        </option>
+
+    </select>
+
+    <button type="submit">
+        Save Assignment
+    </button>
+
+</form>
+
+<a href="/assignment/list">
+    View Assignments
+</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Assignment List</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            background:#f4f6f9;
+        }
+
+        .container{
+            width:95%;
+            margin:30px auto;
+            background:white;
+            padding:25px;
+            border-radius:12px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            color:#004e92;
+            margin-bottom:20px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th{
+            background:#004e92;
+            color:white;
+            padding:14px;
+        }
+
+        td{
+            padding:12px;
+            border-bottom:1px solid #ddd;
+        }
+
+        tr:hover{
+            background:#f1f1f1;
+        }
+
+        .btn{
+            text-decoration:none;
+            padding:8px 12px;
+            border-radius:6px;
+            color:white;
+            font-size:14px;
+            background:green;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Assignment List</h2>
+
+<br>
+
+<a href="/assignment/add" class="btn">
+    Add Assignment
+</a>
+
+<br><br>
+
+<table>
+
+<tr>
+    <th>#</th>
+    <th>Employee</th>
+    <th>Device</th>
+    <th>Issue Date</th>
+    <th>Return Date</th>
+</tr>
+
+<tr th:each="a,stat : ${assignments}">
+
+    <td th:text="${stat.index+1}"></td>
+
+    <td th:text="${a.employee.fullName}"></td>
+
+    <td th:text="${a.device.deviceName}"></td>
+
+    <td th:text="${a.issueDate}"></td>
+
+    <td th:text="${a.returnDate}"></td>
+
+</tr>
+
+</table>
+
+</div>
+
+</body>
+</html>

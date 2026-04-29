@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Device List</title>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#f4f6f9;
+        }
+
+        .container{
+            width:95%;
+            margin:30px auto;
+            background:white;
+            padding:25px;
+            border-radius:12px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th{
+            background:#004e92;
+            color:white;
+            padding:14px;
+        }
+
+        td{
+            padding:12px;
+            border-bottom:1px solid #ddd;
+        }
+
+        .btn{
+            padding:8px 12px;
+            color:white;
+            text-decoration:none;
+            border-radius:6px;
+        }
+
+        .add{
+            background:green;
+        }
+
+        .delete{
+            background:red;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Devices</h2>
+
+<br>
+
+<a href="/device/add" class="btn add">
+    Add Device
+</a>
+
+<br><br>
+
+<table>
+
+<tr>
+    <th>#</th>
+    <th>Device</th>
+    <th>Serial</th>
+    <th>Type</th>
+    <th>Status</th>
+    <th>Condition</th>
+    <th>Department</th>
+    <th>Action</th>
+</tr>
+
+<tr th:each="d,stat : ${devices}">
+
+    <td th:text="${stat.index+1}"></td>
+
+    <td th:text="${d.deviceName}"></td>
+
+    <td th:text="${d.serialNumber}"></td>
+
+    <td th:text="${d.type}"></td>
+
+    <td th:text="${d.status}"></td>
+
+    <td th:text="${d.conditionStatus}"></td>
+
+    <td th:text="${d.department.name}"></td>
+
+    <td>
+
+        <a th:href="@{/device/delete/{id}(id=${d.id})}"
+           class="btn delete">
+
+           Delete
+
+        </a>
+
+    </td>
+
+</tr>
+
+</table>
+
+</div>
+
+</body>
+</html>

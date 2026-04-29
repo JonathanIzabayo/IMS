@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee List</title>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#f4f6f9;
+        }
+
+        .container{
+            width:90%;
+            margin:30px auto;
+            background:white;
+            padding:25px;
+            border-radius:12px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            color:#004e92;
+            margin-bottom:20px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th{
+            background:#004e92;
+            color:white;
+            padding:14px;
+        }
+
+        td{
+            padding:12px;
+            border-bottom:1px solid #ddd;
+        }
+
+        .btn{
+            padding:10px 14px;
+            background:green;
+            color:white;
+            text-decoration:none;
+            border-radius:6px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Employees</h2>
+
+<br>
+
+<a href="/employee/add" class="btn">
+    Add Employee
+</a>
+
+<br><br>
+
+<table>
+
+<tr>
+    <th>#</th>
+    <th>Full Name</th>
+    <th>Email</th>
+</tr>
+
+<tr th:each="e,stat : ${employees}">
+
+    <td th:text="${stat.index+1}"></td>
+
+    <td th:text="${e.fullName}"></td>
+
+    <td th:text="${e.email}"></td>
+
+</tr>
+
+</table>
+
+</div>
+
+</body>
+</html>

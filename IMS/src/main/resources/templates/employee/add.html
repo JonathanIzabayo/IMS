@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Employee</title>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#f4f6f9;
+        }
+
+        .container{
+            width:500px;
+            background:white;
+            margin:50px auto;
+            padding:35px;
+            border-radius:12px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            text-align:center;
+            color:#004e92;
+            margin-bottom:25px;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            margin-top:10px;
+            margin-bottom:18px;
+            border:1px solid #ccc;
+            border-radius:8px;
+        }
+
+        button{
+            width:100%;
+            padding:14px;
+            background:#004e92;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#002f5e;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Add Employee</h2>
+
+<form method="post"
+      th:action="@{/employee/save}"
+      th:object="${employee}">
+
+    <input type="text"
+           th:field="*{fullName}"
+           placeholder="Full Name"/>
+
+    <input type="email"
+           th:field="*{email}"
+           placeholder="Email Address"/>
+
+    <button type="submit">
+        Save Employee
+    </button>
+
+</form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Departments</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            background:#f4f6f9;
+        }
+
+        .container{
+            width:70%;
+            margin:40px auto;
+            background:white;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            color:#004e92;
+            margin-bottom:25px;
+            text-align:center;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th{
+            background:#004e92;
+            color:white;
+            padding:14px;
+        }
+
+        td{
+            padding:12px;
+            border-bottom:1px solid #ddd;
+            text-align:center;
+        }
+
+        tr:hover{
+            background:#f1f1f1;
+        }
+
+        .home-btn{
+            display:inline-block;
+            margin-top:20px;
+            padding:12px 18px;
+            background:#004e92;
+            color:white;
+            text-decoration:none;
+            border-radius:8px;
+        }
+
+        .home-btn:hover{
+            background:#002f5e;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Departments</h2>
+
+    <table>
+
+        <tr>
+            <th>#</th>
+            <th>Department Name</th>
+        </tr>
+
+        <tr th:each="d,stat : ${departments}">
+
+            <td th:text="${stat.index + 1}"></td>
+
+            <td th:text="${d.name}"></td>
+
+        </tr>
+
+    </table>
+
+    <a href="/" class="home-btn">
+        Back Home
+    </a>
+
+</div>
+
+</body>
+</html>
